@@ -26,9 +26,15 @@ function createDeleteButton() {
 function handleTaskDeletion(event) {
     const listItem = event.target.parentElement; 
     // Get the parent <li> element
-    listItem.remove(); 
-    // Remove the task from the completed list
+
+    // Add delete animation
+    listItem.classList.add('animate__animated', 'animate__fadeOutLeft');
+
+    setTimeout(() => {
+        listItem.remove();
+    }, 500); // Match the animation duration
 }
+  
 
 
 // Handle task completion
