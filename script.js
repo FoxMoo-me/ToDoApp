@@ -36,13 +36,15 @@ function handleTaskCompletion(event) {
     const listItem = event.target.parentElement; 
     // Get the parent <li> element
 
-    listItem.classList.add("fade-out");
-    //add the fade-out class
+    // Add fade-out animation
+    listItem.classList.add('animate__animated', 'animate__fadeOutRight');
 
     // Wait for the animation to complete (0.5s) before moving the task
     setTimeout(() => {
-        listItem.classList.remove('fade-out'); 
+        listItem.classList.remove('animate__fadeOutRight'); 
         // Remove fade-out class
+        listItem.classList.add('animate__fadeInUp'); 
+        // Add fade-in class for completed list
 
         listItem.classList.add('completed-task'); 
         // Add class to reset styles
@@ -64,6 +66,9 @@ function handleTaskCompletion(event) {
 function addTask(task) {
     const listItem = document.createElement('li');
     listItem.textContent = task;
+
+     // Add animation classes to the list item
+     listItem.classList.add('animate__animated', 'animate__fadeInDown');
 
     const button = createButton('Done', handleTaskCompletion);
 
