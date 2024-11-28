@@ -1,0 +1,121 @@
+body {
+    /* Set a universal font for a clean and consistent look */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* use flexbox to center the To-Do List app vetically and horizontaly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* apply a full viewport height for the body for a full-screen effect */
+    height: 100vh;
+    margin: 0;
+    /* adding a gradient background for a modern and vibrant appeareance */
+    background: linear-gradient(to right, #6DD5FA, #FF758C);
+    color: #333;
+}
+/* defining the style for our main app container with padding, border-radius, and box-shadow for a polished look */
+#todo-app {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,  0, 0. 0.1);
+}
+/* styling the input field with padding, border, and border-radius for a clean look */
+#todo-form input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;;
+}
+/* giving the button distinct color, making it stand out, and ensuring its clickable */
+#todo-form button {
+    padding: 10px 20px;
+    background-color: #5f9ea0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 5px;
+}
+/* adding a hover effect to the button for better user interaction */
+#todo-form button:hover {
+    background-color: #4682b4;
+}
+
+#todo-list {
+    /* removing the default list styling */
+    list-style: none;
+    padding: 0;
+}
+
+/* adding background color, margins, and padding for each list item */
+#todo-list li {
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    /* using flexbox to position the content and buttons within each list item */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* adding styling to completed-list - removing the default*/
+#completed-list {
+    list-style: none;
+    padding: none;
+}
+/* adding styling to the li elements inside the  */
+#completed-list li {
+    background-color: #3ccab2;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    /* using flexbox to position the content and buttons within each list item */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: lighter;
+}
+#completed-app {
+    width: 80%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,  0, 0. 0.1);
+}
+
+@media screen and (max-width: 600px) {
+     
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px); /* Optional: slide out effect */
+    }
+}
+
+/* Class to trigger the animation */
+.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+/* Ensure tasks appear normally in the completed list */
+.completed-task {
+    opacity: 1; 
+    /* Reset opacity after fade-out */
+    transform: translateX(0); 
+    /* Reset position */
+}
