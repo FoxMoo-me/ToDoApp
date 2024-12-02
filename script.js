@@ -4,14 +4,16 @@ const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
 const completedList = document.getElementById("completed-list"); 
 
-// Create a button element with a click handler
-//this function creates a button and is called later in the code 
-//it takes in two arguments:
-// - one is label = type of string("Done") - the word DONE is used later in the code
-// - second one is a function = which is function named: "handleTaskCompletion" - used later in the code
+// Create a button element with a click handler function.
+// This function creates a button and is called later in the code 
+// it takes in two arguments:
+// - one is label = type of string - the word DONE&X is used later in the code
+// - second one is a function = in this scenario/code the function is called:
+// "handleTaskCompletion" - used later in the code.
+// "handleTaskDeletion" - used later in the code.
 // The reason for creting this helplfull - function below is so it can be reused later in the code
-// for creating a button and inputting different arguments in it (label, clickHandler). Different inputs for label
-// and different type of function to handle the click. 
+// for creating a button and inputting different arguments in it (label, clickHandler). 
+
 function createButton(label, clickHandler) {
     const button = document.createElement('button');
     button.textContent = label;
@@ -29,50 +31,38 @@ function createDeleteButton() {
     return button;
 }
 
-// Handle deletion of completed tasks
 function handleTaskDeletion(event) {
-    const listItem = event.target.parentElement; 
-    // Get the parent <li> element
+    const listItem = event.target.parentElement; // Get the parent <li> element
 
     // Add delete animation
     listItem.classList.add('animate__animated', 'animate__fadeOutLeft');
 
     setTimeout(() => {
-        listItem.remove();
+        listItem.remove(); // Remove the item after the animation
     }, 500); // Match the animation duration
 }
-  
 
-
-// Handle task completion
 function handleTaskCompletion(event) {
-    const listItem = event.target.parentElement; 
-    // Get the parent <li> element
+    const listItem = event.target.parentElement; // Get the parent <li> element
 
     // Add fade-out animation
     listItem.classList.add('animate__animated', 'animate__fadeOutRight');
 
-    // Wait for the animation to complete (0.5s) before moving the task
+    // Wait for the animation to complete
     setTimeout(() => {
-        listItem.classList.remove('animate__fadeOutRight'); 
-        // Remove fade-out class
-        listItem.classList.add('animate__fadeInUp'); 
-        // Add fade-in class for completed list
+        listItem.classList.remove('animate__fadeOutRight'); // Remove fade-out class
+        listItem.classList.add('animate__fadeInUp'); // Add fade-in class for completed list
 
-        listItem.classList.add('completed-task'); 
-        // Add class to reset styles
+        listItem.classList.add('completed-task'); // Add class to reset styles
 
-        // Add a delete button to the completed task
-        const deleteButton = createDeleteButton();
+        // Add delete button using createButton function
+        const deleteButton = createButton('✖', handleTaskDeletion);
         listItem.appendChild(deleteButton);
 
-        completedList.appendChild(listItem); 
-        // Move the task to the completed list
+        completedList.appendChild(listItem); // Move the task to the completed list
 
-        event.target.remove(); 
-        // Remove the "Completed" button
-    }, 500); 
-    // Match the duration of the CSS animation (0.5s)
+        event.target.remove(); // Remove the "Completed" button
+    }, 500); // Match the duration of the CSS animation
 }
 
 // Main function to add a task
