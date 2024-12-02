@@ -2,9 +2,16 @@
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
-const completedList = document.getElementById("completed-list");
+const completedList = document.getElementById("completed-list"); 
 
 // Create a button element with a click handler
+//this function creates a button and is called later in the code 
+//it takes in two arguments:
+// - one is label = type of string("Done") - the word DONE is used later in the code
+// - second one is a function = which is function named: "handleTaskCompletion" - used later in the code
+// The reason for creting this helplfull - function below is so it can be reused later in the code
+// for creating a button and inputting different arguments in it (label, clickHandler). Different inputs for label
+// and different type of function to handle the click. 
 function createButton(label, clickHandler) {
     const button = document.createElement('button');
     button.textContent = label;
